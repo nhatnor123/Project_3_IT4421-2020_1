@@ -1,4 +1,4 @@
-package com._haipv.backend;
+package com.haipv.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
