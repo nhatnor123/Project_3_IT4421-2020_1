@@ -91,7 +91,7 @@ CREATE TABLE Image (
     owner INT NOT NULL,
     isActive BOOLEAN NOT NULL,
     createdAt DATETIME,
-    createdBy VARCHAR(30),
+    createdBy int,
     PRIMARY KEY (imageId)
 );
 
