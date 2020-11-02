@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 public class TestController {
+    // The controller is annotated with the @RestController annotation, therefore the @ResponseBody isn't required
     private TestService testService;
 
     public TestController(TestService testService) {
@@ -21,8 +22,7 @@ public class TestController {
     }
 
     @PostMapping(path = "/createNewTest")
-    public @ResponseBody
-    TestModel createNewTest(@RequestBody RequestCreateNewTestDto requestCreateNewTestDto) {
+    public TestModel createNewTest(@RequestBody RequestCreateNewTestDto requestCreateNewTestDto) {
         TestModel test = new TestModel();
         test.setName(requestCreateNewTestDto.getName());
         test.setAge(requestCreateNewTestDto.getAge());
