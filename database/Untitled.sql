@@ -60,7 +60,7 @@ CREATE TABLE Profile (
     description VARCHAR(1000) NOT NULL,
     isApproved BOOLEAN NOT NULL,
     isApprovedAt DATETIME,
-    isApprovedBy VARCHAR(30),
+    isApprovedBy int,
     isActive BOOLEAN NOT NULL,
     createdAt DATETIME,
     createdBy INT,
