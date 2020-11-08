@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/test")
 public class TestController {
     // The controller is annotated with the @RestController annotation, therefore the @ResponseBody isn't required
     private TestService testService;

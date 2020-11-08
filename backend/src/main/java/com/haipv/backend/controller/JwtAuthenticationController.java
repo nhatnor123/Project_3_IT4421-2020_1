@@ -7,6 +7,7 @@ import com.haipv.backend.service.JwtUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -50,6 +51,7 @@ public class JwtAuthenticationController {
         }
     }
 
+    @PreAuthorize("hasRole('MOD')")
     @PostMapping(value = "/register")
     public ResponseEntity<?> registerNewAccount(@RequestBody RequestOfCreateAccountDto user) throws Exception {
         return ResponseEntity.ok(jwtUserDetailsService.save(user));

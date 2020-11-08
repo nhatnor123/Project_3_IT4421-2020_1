@@ -6,6 +6,7 @@ import com.haipv.backend.repository.AccountRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
@@ -32,11 +36,18 @@ public class JwtUserDetailsService implements UserDetailsService {
         Account account = accountRepo.findByUsername(username);
 
         if (account != null) {
-            return new User(account.getUsername(), account.getPassword(), new ArrayList<>());
+            return new User(account.getUsername(), account.getPassword(), this.getAuthority(account));
         } else {
             throw new UsernameNotFoundException("username not found with username = " + username);
         }
     }
+
+    private List getAuthority(Account account) {
+        List authorities = new ArrayList();
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + account.getRole()));
+        return authorities;
+    }
+
 
     public Account save(RequestOfCreateAccountDto request) {
         Account account = new Account();
