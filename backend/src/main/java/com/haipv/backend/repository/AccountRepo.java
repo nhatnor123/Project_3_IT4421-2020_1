@@ -21,6 +21,18 @@ public class AccountRepo {
         return query.getResultList();
     }
 
+    public Account findByUsername(String username) {
+        String queryString = "select * from Account where username = :username";
+        Query query = entityManager.createNativeQuery(queryString, Account.class);
+        query.setParameter("username", username);
+        List<Account> listAccount = query.getResultList();
+        if (listAccount == null || listAccount.size() == 0) {
+            return null;
+        } else {
+            return listAccount.get(0);
+        }
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public Account create(Account account) {
         account.setCreatedAt(DateTimeUtil.currentVNTime());
