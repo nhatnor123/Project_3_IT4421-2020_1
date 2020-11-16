@@ -2,6 +2,8 @@ import React from "react";
 import {} from "antd";
 import "antd/dist/antd.css";
 
+import Template from "../template/Template";
+
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
@@ -9,7 +11,7 @@ class HomePage extends React.Component {
 
 	render() {
 		console.log("render homepage");
-		return <div>ahihi homepage</div>;
+		return <Template contents={<div>homepage</div>} />;
 	}
 }
 

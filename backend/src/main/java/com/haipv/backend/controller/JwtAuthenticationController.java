@@ -51,7 +51,7 @@ public class JwtAuthenticationController {
         }
     }
 
-    @PreAuthorize("hasRole('MOD')")
+//    @PreAuthorize("hasRole('MOD')")
     @PostMapping(value = "/register")
     public ResponseEntity<?> registerNewAccount(@RequestBody RequestOfCreateAccountDto user) throws Exception {
         return ResponseEntity.ok(jwtUserDetailsService.save(user));

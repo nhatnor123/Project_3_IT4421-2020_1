@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Menu } from "antd";
+import { Row, Col, Menu,Button } from "antd";
 import "antd/dist/antd.css";
 import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -26,7 +26,10 @@ class Header extends React.Component {
 							style={{ marginTop: "5px", marginBottom: "5px" }}
 						/>
 					</Col>
-					<Col span={5} />
+					<Col span={5} >
+                        <Button type="primary" style={{marginRight:"6px", color:"white"}}>Đăng nhập</Button>
+                        <Button type="primary">Đăng ký</Button>
+                    </Col>
 				</Row>
 
 				<Row>
@@ -34,7 +37,7 @@ class Header extends React.Component {
 
 					<Col span={14}>
 						<Menu mode="horizontal">
-							<Menu.Item key="#do-nothing">
+							<Menu.Item key="#do-nothing" disabled={true}>
 								<div>
 									<img
 										src={

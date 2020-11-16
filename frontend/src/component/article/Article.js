@@ -1,6 +1,7 @@
 import React from "react";
 import {} from "antd";
 import "antd/dist/antd.css";
+import Template from "../template/Template";
 
 class Article extends React.Component {
 	constructor(props) {
@@ -9,7 +10,7 @@ class Article extends React.Component {
 
 	render() {
 		console.log("render Article");
-		return <div>Article</div>;
+		return <Template contents={<div>article</div>} />;
 	}
 }
 

@@ -1,6 +1,7 @@
 import React from "react";
 import {} from "antd";
 import "antd/dist/antd.css";
+import Template from "../template/Template";
 
 class ChildrenProfile extends React.Component {
 	constructor(props) {
@@ -9,7 +10,7 @@ class ChildrenProfile extends React.Component {
 
 	render() {
 		console.log("render ChildrenProfile");
-		return <div>ChildrenProfile</div>;
+		return <Template contents={<div>ChildrenProfile</div>} />;
 	}
 }
 

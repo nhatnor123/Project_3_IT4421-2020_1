@@ -43,9 +43,9 @@ class Footer extends React.Component {
 									<div>
 										Bản quyền thuộc nhóm 03-HaiPv It4421 2020-1
 									</div>
-									<div>Tel: * Fax: *</div>
+									<div>Tel: 0123456789 * Fax: 0123456789 *</div>
 									<div>
-										Email: * Website: * Fanpage: *
+										Email: nhatnor123@gmail.com * Website: * Fanpage: *
 									</div>
 									<div>
 										Thiết kế và phát triển bởi nhóm 03-HaiPv It4421 2020-1

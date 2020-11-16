@@ -2,6 +2,8 @@ import React from "react";
 import {} from "antd";
 import "antd/dist/antd.css";
 
+import Template from "../template/Template";
+
 class Sponsor extends React.Component {
 	constructor(props) {
 		super(props);
@@ -9,7 +11,7 @@ class Sponsor extends React.Component {
 
 	render() {
 		console.log("render Sponsor");
-		return <div>Sponsor</div>;
+		return <Template contents={<div>Sponsor</div>} />;
 	}
 }
 
