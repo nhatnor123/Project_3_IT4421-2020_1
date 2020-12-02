@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Menu,Button } from "antd";
+import { Row, Col, Menu, Button } from "antd";
 import "antd/dist/antd.css";
 import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
@@ -18,18 +18,30 @@ class Header extends React.Component {
 				<Row style={{ backgroundColor: "rgba(0,80,135,1)" }}>
 					<Col span={5} />
 					<Col span={14}>
-						<img
-							src={
-								process.env.PUBLIC_URL +
-								"/logo_bo_laodong_tbxh.png"
-							}
-							style={{ marginTop: "5px", marginBottom: "5px" }}
-						/>
+						<Link to="/">
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/logo_bo_laodong_tbxh.png"
+								}
+								style={{
+									marginTop: "5px",
+									marginBottom: "5px",
+								}}
+							/>
+						</Link>
 					</Col>
-					<Col span={5} >
-                        <Button type="primary" style={{marginRight:"6px", color:"white"}}>Đăng nhập</Button>
-                        <Button type="primary">Đăng ký</Button>
-                    </Col>
+					<Col span={5}>
+						<Button
+							type="primary"
+							style={{ marginRight: "6px", color: "white" }}
+						>
+							<Link to="/signin">Đăng nhập</Link>
+						</Button>
+						<Button type="primary">
+							<Link to="/register">Đăng ký</Link>
+						</Button>
+					</Col>
 				</Row>
 
 				<Row>
@@ -42,8 +54,8 @@ class Header extends React.Component {
 									<img
 										src={
 											process.env.PUBLIC_URL + "/Logo.png"
-                                        }
-                                        style={{marginTop:"5px"}}
+										}
+										style={{ marginTop: "5px" }}
 									/>
 								</div>
 							</Menu.Item>

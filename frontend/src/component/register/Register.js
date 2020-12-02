@@ -1,8 +1,18 @@
 import React, { useState } from "react";
-import { Form, Input, Tooltip, Row, Col, Checkbox, Button } from "antd";
+import {
+	Form,
+	Input,
+	Tooltip,
+	Row,
+	Col,
+	Checkbox,
+	Button,
+	message,
+} from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { SERVER } from "../../config/Config";
+import { Link, Redirect } from "react-router-dom";
 
 const formItemLayout = {
 	labelCol: {
@@ -41,6 +51,7 @@ export default class Register extends React.Component {
 	}
 
 	handleSummit = async (value) => {
+		console.log("value = ");
 		console.log(value);
 		const registerPayload = {
 			username: value.username,
@@ -52,17 +63,27 @@ export default class Register extends React.Component {
 			email: value.email,
 			imageId: "",
 			isApproved: false,
-			createdBy: 1,
 		};
-		try {
-			await axios.post(`${SERVER}/register`, registerPayload, {
+		console.log("registePayload = ");
+		console.log(registerPayload);
+
+		await axios
+			.post(`${SERVER}/register`, registerPayload, {
 				headers: {
 					"Content-Type": "application/json",
 				},
+			})
+			.then((response) => {
+				console.log("response = ");
+				console.log(response);
+				message.success("Đăng ký thành công", 5);
+				this.props.history.push("/signin");
+			})
+			.catch((error) => {
+				console.log("error = ");
+				console.log(error);
+				message.error("Đăng ký thất bại", 3);
 			});
-		} catch (error) {
-			console.log(error);
-		}
 	};
 
 	render() {
@@ -71,13 +92,18 @@ export default class Register extends React.Component {
 				<Row style={{ backgroundColor: "rgba(0,80,135,1)" }}>
 					<Col span={5} />
 					<Col span={14}>
-						<img
-							src={
-								process.env.PUBLIC_URL +
-								"/logo_bo_laodong_tbxh.png"
-							}
-							style={{ marginTop: "5px", marginBottom: "5px" }}
-						/>
+						<Link to="/">
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/logo_bo_laodong_tbxh.png"
+								}
+								style={{
+									marginTop: "5px",
+									marginBottom: "5px",
+								}}
+							/>
+						</Link>
 					</Col>
 				</Row>
 
@@ -272,7 +298,7 @@ export default class Register extends React.Component {
 											type="primary"
 											htmlType="submit"
 										>
-											Register
+											Đăng ký
 										</Button>
 									</Col>
 								</Row>

@@ -19,9 +19,9 @@ insert into test ( name, age, createdAt, isActive)  value ('nhật đây là tô
 CREATE TABLE Account (
     accountId INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(30) NOT NULL UNIQUE,
-    password VARCHAR(40) NOT NULL,
+    password VARCHAR(80) NOT NULL,
     role VARCHAR(40) NOT NULL,
-    firstName VARCHAR(30) NOT NULL,
+    firstName VARCHAR(30) NOT NULL,	
     lastName VARCHAR(30) NOT NULL,
     phoneNo VARCHAR(15) NOT NULL,
     email VARCHAR(40) NOT NULL UNIQUE,
@@ -96,34 +96,34 @@ CREATE TABLE Image (
 );
 
 -- constraint--
-alter table Account
-add foreign key (createdBy) references Account(accountId);
+-- alter table Account
+-- add foreign key (createdBy) references Account(accountId);
 
-alter table Account
-add foreign key (updatedBy) references Account(accountId);
+-- alter table Account
+-- add foreign key (updatedBy) references Account(accountId);Account
 
-alter table Article
-add foreign key (createdBy) references Account(accountId);
+-- alter table Article
+-- add foreign key (createdBy) references Account(accountId);
+--    
+-- alter table Article
+-- add foreign key (updatedBy) references Account(accountId);  
+--    
+--    
+-- alter table Profile
+-- add foreign key (createdBy) references Account(accountId);
+--    
+-- alter table Profile
+-- add foreign key (updatedBy) references Account(accountId);  
+--    
+--    
+-- alter table Sponsor
+-- add foreign key (createdBy) references Account(accountId);
+--    
+-- alter table Sponsor
+-- add foreign key (updatedBy) references Account(accountId); 
    
-alter table Article
-add foreign key (updatedBy) references Account(accountId);  
    
-   
-alter table Profile
-add foreign key (createdBy) references Account(accountId);
-   
-alter table Profile
-add foreign key (updatedBy) references Account(accountId);  
-   
-   
-alter table Sponsor
-add foreign key (createdBy) references Account(accountId);
-   
-alter table Sponsor
-add foreign key (updatedBy) references Account(accountId); 
-   
-   
-alter table Image
-add foreign key (createdBy) references Account(accountId);
+-- alter table Image
+-- add foreign key (createdBy) references Account(accountId);
    
    
